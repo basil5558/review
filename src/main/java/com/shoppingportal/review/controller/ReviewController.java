@@ -29,35 +29,35 @@ public class ReviewController {
 	    private ReviewService ReviewService;
 	  
 	    // Save operation
-	    @PostMapping("/Reviews")
+	    @PostMapping("/review")
 	    public Review saveReview(@Validated @RequestBody Review Review)
 	    {
 	        return ReviewService.saveReview(Review);
 	    }
 	  
 	    // Read operation
-	    @GetMapping("/Reviews")
+	    @GetMapping("/review")
 	    public List<Review> fetchReviewList(Pageable page)
 	    {
 	        return ReviewService.fetchReviewList(page);
 	    }
 	    
 	    // Read operation
-	    @GetMapping("/Reviews/{id}")
+	    @GetMapping("/review/{id}")
 	    public Review fetchReviewById(@PathVariable("id") long ReviewId)
 	    {
 	        return ReviewService.getReviewById(ReviewId);
 	    }
 	    
 	   // Read operation
-	    @GetMapping("/Reviews/user/{username}")
+	    @GetMapping("/review/user/{username}")
 		public List<Review> findAllReviewUsersNative(@PathVariable("username") String username) {
 
 			return ReviewService.findAllReviewUsersNative(username);
 		}
 
 		// Read operation
-	    @GetMapping("/Reviews/product/{productId}")
+	    @GetMapping("/review/product/{productId}")
 		public List<Review> findAllReviewNative(@PathVariable("productId") String productId) {
 			
 			return ReviewService.findAllReviewNative(productId);
@@ -65,14 +65,14 @@ public class ReviewController {
 
 	  
 	    // Update operation
-	    @PatchMapping("/Reviews/{id}")
+	    @PatchMapping("/review/{id}")
 	    public Review updateReview(@RequestBody Review Review,@PathVariable("id") long ReviewId)
 	    {
 	        return ReviewService.updateReview(Review, ReviewId);
 	    }
 	  
 	    // Delete operation
-	    @DeleteMapping("/Reviews/{id}")
+	    @DeleteMapping("/review/{id}")
 	    public String deleteReviewById(@PathVariable("id") long ReviewId)
 	    {
 	        ReviewService.deleteReviewById(ReviewId);
